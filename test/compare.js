@@ -5,7 +5,7 @@ suite('compareAst', function() {
 		compareAst('\tvar   a=0;\n \t a    +=4;\n\n', 'var a = 0; a += 4;');
 	});
 
-	test.skip('dereferencing', function() {
+	test('dereferencing', function() {
 		compareAst('a.b;', 'a["b"];');
 	});
 
@@ -56,6 +56,10 @@ suite('compareAst', function() {
 
 		test('value change', function() {
 			noMatch(['var a = 3;', 'var a = 4;'], 3);
+		});
+
+		test('dereferencing', function() {
+			noMatch(['a.b;', 'a["b "];'], 3);
 		});
 
 		test('double binding', function() {
