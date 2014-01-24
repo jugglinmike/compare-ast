@@ -71,5 +71,10 @@ suite('compareAst', function() {
 				2
 			);
 		});
+
+		test('extra statements', function() {
+			noMatch(['a;', ''], 3);
+		});
+
 	});
 });
