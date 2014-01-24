@@ -1,0 +1,19 @@
+{
+  "name": "compare-ast",
+  "version": "0.0.1",
+  "description": "",
+  "main": "lib/compare.js",
+  "dependencies": {
+    "esprima": "~1.0.4"
+  },
+  "devDependencies": {
+    "jshint": "~2.4.1",
+    "mocha": "~1.17.0"
+  },
+  "scripts": {
+    "test": "mocha --ui tdd",
+    "jshint": "jshint lib/ test/"
+  },
+  "author": "Mike Pennisi",
+  "license": "MIT-Expat"
+}

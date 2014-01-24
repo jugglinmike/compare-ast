@@ -1,0 +1,12 @@
+{
+  "quotmark": "single",
+  "esnext": true,
+  "trailing": true,
+  "unused": true,
+  "undef": true,
+  "node": true,
+  "globals": {
+    "suite": true,
+    "test": true
+  }
+}
