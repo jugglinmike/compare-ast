@@ -13,6 +13,10 @@ suite('compareAst', function() {
 		compareAst('(function() {}());', '(function() {})();');
 	});
 
+	test.skip('variable lists', function() {
+		compareAst('var a; var b;', 'var a, b;');
+	});
+
 	test('variable binding', function() {
 		compareAst(
 			'(function(a, b) { console.log(a + b); })(1, 3);',
