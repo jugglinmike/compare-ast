@@ -1,7 +1,7 @@
 {
   "name": "compare-ast",
   "version": "0.0.1",
-  "description": "",
+  "description": "Determine if two strings of JavaScript have equivalent abstract syntax trees.",
   "main": "lib/compare.js",
   "dependencies": {
     "esprima": "~1.0.4"
@@ -15,5 +15,18 @@
     "jshint": "jshint lib/ test/"
   },
   "author": "Mike Pennisi",
-  "license": "MIT-Expat"
+  "license": "MIT-Expat",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jugglinmike/compare-ast.git"
+  },
+  "keywords": [
+    "assertions"
+  ],
+  "bugs": {
+    "url": "https://github.com/jugglinmike/compare-ast/issues"
+  }
 }
