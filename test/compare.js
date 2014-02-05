@@ -80,5 +80,9 @@ suite('compareAst', function() {
 			noMatch(['a;', ''], 3);
 		});
 
+		test('unmatched member expression', function() {
+			noMatch(['a.b;', '3;'], 3);
+		});
+
 	});
 });
