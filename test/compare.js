@@ -35,6 +35,14 @@ suite('compareAst', function() {
 		);
 	});
 
+	test('string binding with object dereferencing', function() {
+		compareAst(
+			'a.b;',
+			'a["_s1_"];',
+			{ stringPattern: /_s\d_/ }
+		);
+	});
+
 	test('variable binding and string binding', function() {
 		compareAst(
 			'a["b"];',
@@ -97,6 +105,16 @@ suite('compareAst', function() {
 				'var a = "one", b = "two", c = "three";',
 				'var a = "_s1_", b = "_s2_", c = "_s1_";',
 				{ stringPattern: /_s\d_/ },
+				],
+				2
+			);
+		});
+
+		test('double string binding (through object dereference)', function() {
+			noMatch([
+				'a.a; a.b; a.c;',
+				'a["_s1_"]; a["_s2_"]; a["_s1_"];',
+				{ stringPattern: /_s\d/ },
 				],
 				2
 			);
