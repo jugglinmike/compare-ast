@@ -29,6 +29,14 @@ This module exports a function with the following signature:
       { varPattern: /__x\d+__/ }
     );
 
+    // Allow for "fuzzy" string values by specifying the `stringPattern` option
+    // as a regular expression:
+    compareAst(
+      "var a = 'one', b = 'two', c = 'three';"
+      "var a = '__s1__', b = '__s2__', c = '__s3__';",
+      { stringPattern: /__s\d+__/ }
+    );
+
 ## Tests
 
 Run via:

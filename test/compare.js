@@ -27,6 +27,22 @@ suite('compareAst', function() {
 		);
 	});
 
+	test('string binding', function() {
+		compareAst(
+			'a["something"];"something2";"something";',
+			'a["__STR1__"]; "__STR2__"; "__STR1__";',
+			{ stringPattern: /__STR\d+__/ }
+		);
+	});
+
+	test('variable binding and string binding', function() {
+		compareAst(
+			'a["b"];',
+			'_v1_["_s1_"];',
+			{ stringPattern: /_s\d_/, varPattern: /_v\d_/ }
+		);
+	});
+
 	suite('expected failures', function() {
 
 		function noMatch(args, expectedCode) {
@@ -66,11 +82,21 @@ suite('compareAst', function() {
 			noMatch(['a.b;', 'a["b "];'], 3);
 		});
 
-		test('double binding', function() {
+		test('double variable binding', function() {
 			noMatch([
 				'(function(a, b) { console.log(a); });',
 				'(function(__UNBOUND0__, __UNBOUND1__) { console.log(__UNBOUND1__); });',
 				{ varPattern: /__UNBOUND\d+__/ }
+				],
+				2
+			);
+		});
+
+		test('double string binding', function() {
+			noMatch([
+				'var a = "one", b = "two", c = "three";',
+				'var a = "_s1_", b = "_s2_", c = "_s1_";',
+				{ stringPattern: /_s\d_/ },
 				],
 				2
 			);
