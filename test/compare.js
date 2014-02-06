@@ -5,8 +5,14 @@ suite('compareAst', function() {
 		compareAst('\tvar   a=0;\n \t a    +=4;\n\n', 'var a = 0; a += 4;');
 	});
 
-	test('dereferencing', function() {
-		compareAst('a.b;', 'a["b"];');
+	suite('dereferencing', function() {
+		test('identifier to literal', function() {
+			compareAst('a.b;', 'a["b"];');
+		});
+
+		test('literal to identifier', function() {
+			compareAst('a["b"];', 'a.b;');
+		});
 	});
 
 	test('IIFE parenthesis placement', function() {
