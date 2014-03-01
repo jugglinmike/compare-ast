@@ -80,6 +80,11 @@ suite('compareAst', function() {
 			throw new Error('Expected an error, but no error was thrown.');
 		}
 
+		test('unmatched statements', function() {
+			noMatch(['', 'var x = 0;'], 3);
+			noMatch(['var x = 0;', ''], 3);
+		});
+
 		test('parse failure', function() {
 			noMatch(['var a = !;', 'var a = !;'], 1);
 		});
