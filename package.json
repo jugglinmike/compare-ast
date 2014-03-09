@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "mocha --ui tdd",
-    "jshint": "jshint lib/ test/"
+    "jshint": "jshint lib/ test/",
+    "ci": "npm run jshint && npm test"
   },
   "author": "Mike Pennisi",
   "license": "MIT-Expat",

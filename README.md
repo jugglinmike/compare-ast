@@ -3,6 +3,9 @@
 Determine if two strings of JavaScript have equivalent abstract syntax trees.
 This can be useful to test tools that perform source code transformations.
 
+[![Build
+Status](https://travis-ci.org/jugglinmike/compare-ast.png)](https://travis-ci.org/jugglinmike/compare-ast)
+
 ## API
 
 This module exports a function with the following signature:
