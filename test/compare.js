@@ -57,6 +57,25 @@ suite('compareAst', function() {
 		);
 	});
 
+	test('custom comparator', function() {
+		var vals = [3, 4];
+		var threeOrFour = function(actual, expected) {
+			if (actual.type !== 'Literal' || expected.type !== 'Literal') {
+				return;
+			}
+
+			if (vals.indexOf(actual.value) > -1 &&
+				vals.indexOf(expected.value) > -1) {
+				return true;
+			}
+		};
+		compareAst(
+			'a.b + 3',
+			'a["b"] + 4',
+			{ comparators: [threeOrFour] }
+		);
+	});
+
 	suite('expected failures', function() {
 
 		function noMatch(args, expectedCode) {
