@@ -16,7 +16,7 @@
     "ci": "npm run jshint && npm test"
   },
   "author": "Mike Pennisi",
-  "license": "MIT-Expat",
+  "license": "MIT",
   "directories": {
     "test": "test"
   },
